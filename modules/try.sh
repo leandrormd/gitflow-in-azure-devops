@@ -137,25 +137,10 @@ function tryCreatePullRequest()
 
     if [[ "$BROWSER_BEHAVIOR" = "OPEN BROWSER" ]];
     then
-        git pr create \
-            --delete-source-branch \
-            --detect on \
-            --open \
-            --output table \
-            --repository "$REPOSITORY_NAME" \
-            --reviewers "CompIQ Team" \
-            --target-branch "$TARGET_BRANCH" \
-            --title "$TITLE";
+        az repos pr create --delete-source-branch --detect true --open --output table --repository "$REPOSITORY_NAME" --target-branch "$TARGET_BRANCH" --title "$TITLE";
         local PR_RESULT=$?;
     else
-        git pr create \
-            --delete-source-branch \
-            --detect on \
-            --output table \
-            --repository "$REPOSITORY_NAME" \
-            --reviewers "CompIQ Team" \
-            --target-branch "$TARGET_BRANCH" \
-            --title "$TITLE";
+        az repos pr create --delete-source-branch --detect true --output table --repository "$REPOSITORY_NAME" --target-branch "$TARGET_BRANCH" --title "$TITLE";
         local PR_RESULT=$?;
     fi
 
