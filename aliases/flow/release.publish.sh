@@ -14,5 +14,4 @@ verifyUpToDateBranch;
 # Process
 RELEASE_NAME="$(getBranchNameWithoutPrefix)";
 tryCreatePullRequest "master" "Next release: $RELEASE_NAME" "OPEN BROWSER";
-tryCreatePullRequest "develop" "Next release: $RELEASE_NAME" "NO BROWSER";
 showSuccess "The release branch was published";
